@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaMoney Funnel Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .funnel-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .funnel-stage {
+            width: 100%;
+            margin: 6px 0;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
+        
+        .funnel-stage:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stage-info {
+            display: flex;
+            align-items: center;
+            width: 70%;
+        }
+        
+        .stage-number {
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .stage-name {
+            font-weight: 600;
+            font-size: 16px;
+        }
+        
+        .stage-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            width: 30%;
+        }
+        
+        .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        
+        .badge-red {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
+        .badge-green {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .badge-blue {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .notification-icon {
+            color: #fbc02d;
+            margin-left: 10px;
+        }
+        
+        .call-icon {
+            color: #e53935;
+            margin-left: 10px;
+        }
+        
+        .reminder-text {
+            font-size: 12px;
+            color: #666;
+            margin-left: 10px;
+            font-style: italic;
+        }
+
+        .high-dropoff {
+            border-left: 4px solid #e53935;
+        }
+
+        .low-dropoff {
+            border-left: 4px solid #43a047;
+        }
+
+        @media (max-width: 600px) {
+            .funnel-stage {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stage-info, .stage-actions {
+                width: 100%;
+            }
+            
+            .stage-actions {
+                justify-content: flex-start;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 1px dashed #eee;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>InstaMoney Application Funnel</h1>
+        
+        <div class="funnel-container">
+            <!-- Stage 1 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">1</div>
+                    <div class="stage-name">Create Lead (API Triggered)</div>
+                </div>
+                <div class="stage-actions">
+                    <span class="badge badge-blue">New</span>
+                </div>
+            </div>
+            
+            <!-- Stage 2 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">2</div>
+                    <div class="stage-name">Signup on InstaMoney App</div>
+                </div>
+                <div class="stage-actions">
+                    <i class="fas fa-bell notification-icon"></i>
+                    <span class="reminder-text">Push notification reminders start at this stage</span>
+                </div>
+            </div>
+            
+            <!-- Stage 3 -->
+            <div class="funnel-stage high-dropoff">
+                <div class="stage-info">
+                    <div class="stage-number">3</div>
+                    <div class="stage-name">Registration Fee (RF) Payment</div>
+                </div>
+                <div class="stage-actions">
+                    <span class="badge badge-red">High Dropoff</span>
+                    <i class="fas fa-phone-alt call-icon"></i>
+                    <span class="reminder-text">Call centre calling reminders start at this stage</span>
+                </div>
+            </div>
+            
+            <!-- Stage 4 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">4</div>
+                    <div class="stage-name">KYC Verification</div>
+                </div>
+                <div class="stage-actions"></div>
+            </div>
+            
+            <!-- Stage 5 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">5</div>
+                    <div class="stage-name">Bank Statement Upload</div>
+                </div>
+                <div class="stage-actions"></div>
+            </div>
+            
+            <!-- Stage 6 -->
+            <div class="funnel-stage low-dropoff">
+                <div class="stage-info">
+                    <div class="stage-number">6</div>
+                    <div class="stage-name">Bank Details Submission</div>
+                </div>
+                <div class="stage-actions">
+                    <span class="badge badge-green">Low Dropoff</span>
+                </div>
+            </div>
+            
+            <!-- Stage 7 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">7</div>
+                    <div class="stage-name">UPI Mandate Setup</div>
+                </div>
+                <div class="stage-actions"></div>
+            </div>
+            
+            <!-- Stage 8 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">8</div>
+                    <div class="stage-name">Loan Agreement / Key Facts Sheet</div>
+                </div>
+                <div class="stage-actions"></div>
+            </div>
+            
+            <!-- Stage 9 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">9</div>
+                    <div class="stage-name">Approved</div>
+                </div>
+                <div class="stage-actions"></div>
+            </div>
+            
+            <!-- Stage 10 -->
+            <div class="funnel-stage">
+                <div class="stage-info">
+                    <div class="stage-number">10</div>
+                    <div class="stage-name">Disbursed</div>
+                </div>
+                <div class="stage-actions">
+                    <span class="badge badge-green">Completed</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
